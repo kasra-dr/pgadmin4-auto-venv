@@ -4,6 +4,7 @@
 PGADMIN_DIR="/usr/pgadmin4"
 VENV_DIR="$PGADMIN_DIR/venv"
 REQ_FILE="$PGADMIN_DIR/web/requirements.txt"
+# The other versions: https://ftp.postgresql.org/pub/pgadmin/pgadmin4/
 WHEEL_URL="https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v9.2/pip/pgadmin4-9.2-py3-none-any.whl"
 
 echo "Removing old virtualenv (if exists)..."
@@ -21,7 +22,6 @@ if [ -f "$REQ_FILE" ]; then
     "$VENV_DIR/bin/pip" install -r "$REQ_FILE"
 else
     echo "requirements.txt not found! Installing .whl packages manually..."
-    # The other versions: https://ftp.postgresql.org/pub/pgadmin/pgadmin4/
     sudo "$VENV_DIR/bin/pip" install "$WHEEL_URL" 
 fi
 
